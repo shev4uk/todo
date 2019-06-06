@@ -11,12 +11,18 @@ import { LoginComponent } from './user/login/login.component';
 import { RegistrationComponent } from './user/registration/registration.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    DashboardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -25,9 +31,12 @@ import { MatInputModule } from '@angular/material/input';
     AngularFirestoreModule,
     BrowserAnimationsModule,
     AngularFireAuthModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    AngularFireAuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
